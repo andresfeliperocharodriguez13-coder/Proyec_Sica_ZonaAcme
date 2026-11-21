@@ -1,30 +1,26 @@
-
 package com.sica.acme;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
 
-        Label titulo = new Label("SICA - Zona Acme");
-        Label mensaje = new Label("Sistema Integrado de Control de Acceso");
+        FXMLLoader loader = new FXMLLoader(
+                Main.class.getResource("/com/sica/acme/view/login-view.fxml")
+        );
 
-        Button boton = new Button("Comenzar");
-
-        VBox contenedor = new VBox(15);
-        contenedor.getChildren().addAll(titulo, mensaje, boton);
-
-        Scene escena = new Scene(contenedor, 800, 500);
+        Scene scene = new Scene(loader.load());
 
         stage.setTitle("SICA - Zona Acme");
-        stage.setScene(escena);
+        stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
