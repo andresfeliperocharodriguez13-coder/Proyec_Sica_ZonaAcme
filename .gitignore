@@ -4,3 +4,4 @@ target/
 *.iml
 *.class
 .env
+/database/backup_sica.sql

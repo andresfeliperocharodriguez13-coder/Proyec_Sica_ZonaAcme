@@ -25,11 +25,12 @@ INSERT IGNORE INTO permisos (nombre_permiso, descripcion) VALUES
 ('crear_empresa', 'Registrar empresas'),
 ('editar_empresa', 'Modificar empresas'),
 ('eliminar_empresa', 'Eliminar empresas'),
+('consultar_empresas', 'Consultar informacion de empresas'),
 
 ('crear_persona', 'Registrar personas'),
 ('editar_persona', 'Modificar personas'),
 ('eliminar_persona', 'Eliminar personas'),
-('consultar_personas', 'Consultar información de personas'),
+('consultar_personas', 'Consultar informacion de personas'),
 ('bloquear_persona', 'Bloquear el acceso de una persona'),
 ('desbloquear_persona', 'Restablecer el acceso de una persona'),
 
@@ -44,7 +45,7 @@ INSERT IGNORE INTO permisos (nombre_permiso, descripcion) VALUES
 ('consultar_incidentes', 'Consultar incidentes'),
 
 ('consultar_reportes', 'Consultar reportes del sistema'),
-('generar_reporte_auditoria', 'Generar reportes de auditoría');
+('generar_reporte_auditoria', 'Generar reportes de auditoria');
 
 
 -- =========================================
@@ -72,6 +73,7 @@ AND p.nombre_permiso IN (
     'editar_usuario',
     'crear_empresa',
     'editar_empresa',
+    'consultar_empresas',
     'crear_persona',
     'editar_persona',
     'eliminar_persona',

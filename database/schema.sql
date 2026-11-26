@@ -1,15 +1,58 @@
+
 USE sica_acme;
+
+-- =========================================
+-- 1. ROLES
+-- =========================================
 
 CREATE TABLE roles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre_rol VARCHAR(50) NOT NULL UNIQUE
 );
 
+
+-- =========================================
+-- 2. PERMISOS
+-- =========================================
+
 CREATE TABLE permisos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre_permiso VARCHAR(100) NOT NULL UNIQUE,
     descripcion TEXT
 );
+
+
+-- =========================================
+-- 3. EMPRESAS
+-- =========================================
+
+CREATE TABLE empresas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    contacto_principal VARCHAR(100)
+);
+
+
+-- =========================================
+-- 4. USUARIOS
+-- =========================================
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    rol_id INT NOT NULL,
+    empresa_id INT,
+    esta_activo BOOLEAN NOT NULL DEFAULT TRUE,
+    FOREIGN KEY (rol_id) REFERENCES roles(id),
+    FOREIGN KEY (empresa_id) REFERENCES empresas(id)
+);
+
+
+-- =========================================
+-- 5. RELACION ENTRE ROLES Y PERMISOS
+-- =========================================
 
 CREATE TABLE rol_permisos (
     rol_id INT NOT NULL,
@@ -19,31 +62,30 @@ CREATE TABLE rol_permisos (
     FOREIGN KEY (permiso_id) REFERENCES permisos(id)
 );
 
-CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    rol_id INT NOT NULL,
-    esta_activo BOOLEAN NOT NULL DEFAULT TRUE,
-    FOREIGN KEY (rol_id) REFERENCES roles(id)
-);
+
+-- =========================================
+-- 6. ESTADOS DE ACCESO DE PERSONAS
+-- =========================================
 
 CREATE TABLE persona_estados_acceso (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre_estado VARCHAR(50) NOT NULL UNIQUE
 );
 
+
+-- =========================================
+-- 7. ESTADOS DE VISITAS
+-- =========================================
+
 CREATE TABLE visita_estados (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre_estado VARCHAR(100) NOT NULL UNIQUE
 );
 
-CREATE TABLE empresas (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    contacto_principal VARCHAR(100)
-);
+
+-- =========================================
+-- 8. PERSONAS
+-- =========================================
 
 CREATE TABLE personas (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -57,18 +99,31 @@ CREATE TABLE personas (
     FOREIGN KEY (estado_acceso_id) REFERENCES persona_estados_acceso(id)
 );
 
+
+-- =========================================
+-- 9. VISITAS
+-- =========================================
+
 CREATE TABLE visitas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     persona_id INT NOT NULL,
-    fecha_entrada DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    anfitrion_id INT,
+    fecha_programada DATETIME NOT NULL,
+    fecha_entrada DATETIME NULL DEFAULT NULL,
     fecha_salida DATETIME,
     estado_visita_id INT NOT NULL,
     vehiculo_placa VARCHAR(10),
     visita_aprobada_por INT,
     FOREIGN KEY (persona_id) REFERENCES personas(id),
+    FOREIGN KEY (anfitrion_id) REFERENCES personas(id),
     FOREIGN KEY (estado_visita_id) REFERENCES visita_estados(id),
     FOREIGN KEY (visita_aprobada_por) REFERENCES usuarios(id)
 );
+
+
+-- =========================================
+-- 10. INCIDENTES
+-- =========================================
 
 CREATE TABLE incidentes (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -79,6 +134,11 @@ CREATE TABLE incidentes (
     FOREIGN KEY (visita_id) REFERENCES visitas(id),
     FOREIGN KEY (reportado_por_id) REFERENCES usuarios(id)
 );
+
+
+-- =========================================
+-- 11. BITACORA DE AUDITORIA
+-- =========================================
 
 CREATE TABLE bitacora_auditoria (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
