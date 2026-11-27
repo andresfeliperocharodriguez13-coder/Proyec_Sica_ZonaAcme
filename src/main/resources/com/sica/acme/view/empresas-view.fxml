@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sica.acme.controller.EmpresaController"
+      stylesheets="@../styles/empresas.css"
+      spacing="20"
+      styleClass="empresas-root">
+
+    <VBox spacing="6" styleClass="empresas-header">
+        <Label text="GestiÃ³n de empresas"
+               styleClass="titulo-seccion"/>
+
+        <Label text="Consulta y administra las empresas registradas en Zona Acme."
+               styleClass="descripcion-seccion"
+               wrapText="true"/>
+    </VBox>
+
+    <HBox spacing="10">
+        <Button text="+ Nueva empresa"
+                onAction="#handleNuevaEmpresa"
+                styleClass="boton-primario"/>
+
+        <Button text="Editar seleccionada"
+                onAction="#handleEditarEmpresa"
+                styleClass="boton-secundario"/>
+
+        <Button text="Actualizar"
+                onAction="#handleActualizar"
+                styleClass="boton-secundario"/>
+
+        <Button text="Eliminar seleccionada"
+        onAction="#handleEliminarEmpresa"
+        styleClass="boton-secundario"/>
+    </HBox>
+
+    <VBox spacing="12" styleClass="empresas-card" VBox.vgrow="ALWAYS">
+
+        <Label text="Empresas registradas"
+               styleClass="titulo-seccion"/>
+
+        <TableView fx:id="tablaEmpresas"
+                   styleClass="tabla-empresas"
+                   VBox.vgrow="ALWAYS">
+
+            <columns>
+                <TableColumn fx:id="colId"
+                             text="ID"
+                             prefWidth="80"/>
+
+                <TableColumn fx:id="colNombre"
+                             text="Nombre de la empresa"
+                             prefWidth="300"/>
+
+                <TableColumn fx:id="colContacto"
+                             text="Contacto principal"
+                             prefWidth="250"/>
+            </columns>
+
+        </TableView>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,92 @@
+
+/* Fondo y configuración general */
+.empresas-root {
+    -fx-background-color: #f5f7fb;
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 25px;
+}
+
+/* Encabezado */
+.empresas-header {
+    -fx-spacing: 6px;
+}
+
+.titulo-seccion {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.descripcion-seccion {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748b;
+}
+
+/* Contenedor de la tabla */
+.empresas-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 10px;
+    -fx-padding: 18px;
+}
+
+/* Botón principal */
+.boton-primario {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-padding: 10px 16px;
+    -fx-cursor: hand;
+}
+
+.boton-primario:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+/* Botón secundario */
+.boton-secundario {
+    -fx-background-color: white;
+    -fx-text-fill: #334155;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 9px 14px;
+    -fx-cursor: hand;
+}
+
+.boton-secundario:hover {
+    -fx-background-color: #f1f5f9;
+}
+
+/* Tabla */
+.tabla-empresas {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+.tabla-empresas .column-header-background {
+    -fx-background-color: #f1f5f9;
+}
+
+.tabla-empresas .column-header .label {
+    -fx-text-fill: #334155;
+    -fx-font-weight: bold;
+}
+
+.tabla-empresas .table-cell {
+    -fx-text-fill: #334155;
+    -fx-padding: 11px 10px;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+}
+
+.tabla-empresas .table-row-cell:selected {
+    -fx-background-color: #dbeafe;
+}
+
+.tabla-empresas .table-row-cell:selected .text {
+    -fx-fill: #1e40af;
+}

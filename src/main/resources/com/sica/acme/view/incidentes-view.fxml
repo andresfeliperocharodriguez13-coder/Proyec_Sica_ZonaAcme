@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.sica.acme.controller.IncidenteController"
+      stylesheets="@../styles/empresas.css"
+      spacing="20"
+      styleClass="empresas-root">
+
+    <VBox spacing="6" styleClass="empresas-header">
+
+        <Label text="Gestión de incidentes"
+               styleClass="titulo-seccion"/>
+
+        <Label text="Registra y consulta los incidentes ocurridos durante las actividades de control de acceso."
+               styleClass="descripcion-seccion"
+               wrapText="true"/>
+
+    </VBox>
+
+    <HBox spacing="10">
+
+        <Button fx:id="btnNuevoIncidente"
+                text="+ Nuevo incidente"
+                onAction="#handleNuevoIncidente"
+                styleClass="boton-primario"/>
+
+        <Button fx:id="btnActualizar"
+                text="Actualizar"
+                onAction="#handleActualizar"
+                styleClass="boton-secundario"/>
+
+    </HBox>
+
+    <VBox spacing="12"
+          styleClass="empresas-card"
+          VBox.vgrow="ALWAYS">
+
+        <Label text="Incidentes registrados"
+               styleClass="titulo-seccion"/>
+
+        <TableView fx:id="tablaIncidentes"
+                   styleClass="tabla-empresas"
+                   VBox.vgrow="ALWAYS">
+
+            <columns>
+
+                <TableColumn fx:id="colId"
+                             text="ID"
+                             prefWidth="55"/>
+
+                <TableColumn fx:id="colVisita"
+                             text="ID visita"
+                             prefWidth="90"/>
+
+                <TableColumn fx:id="colReportadoPor"
+                             text="Reportado por (ID)"
+                             prefWidth="150"/>
+
+                <TableColumn fx:id="colFecha"
+                             text="Fecha"
+                             prefWidth="160"/>
+
+                <TableColumn fx:id="colDescripcion"
+                             text="Descripción"
+                             prefWidth="400"/>
+
+            </columns>
+
+        </TableView>
+
+    </VBox>
+
+</VBox>

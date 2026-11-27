@@ -1,0 +1,134 @@
+
+/* CONFIGURACIÓN GENERAL */
+.dashboard-root {
+    -fx-background-color: #f5f7fb;
+    -fx-font-family: "Segoe UI";
+}
+
+/* ENCABEZADO */
+.topbar {
+    -fx-background-color: white;
+    -fx-padding: 15px 22px;
+    -fx-border-color: transparent transparent #e2e8f0 transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.logo {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2563eb;
+}
+
+.topbar-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748b;
+}
+
+.usuario-nombre {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.usuario-rol {
+    -fx-font-size: 11px;
+    -fx-text-fill: #2563eb;
+}
+
+.usuario-correo {
+    -fx-font-size: 11px;
+    -fx-text-fill: #64748b;
+}
+
+.boton-sesion {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+    -fx-padding: 10px 16px;
+    -fx-cursor: hand;
+}
+
+.boton-sesion:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+/* MENÚ LATERAL */
+.sidebar {
+    -fx-background-color: #172033;
+    -fx-padding: 22px 14px;
+    -fx-spacing: 9px;
+    -fx-pref-width: 205px;
+}
+
+.menu-titulo {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 12px 5px;
+}
+
+.menu-separador {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 15px 0 5px 5px;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dbe5f2;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-pref-width: 177px;
+    -fx-padding: 11px 12px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: #263750;
+    -fx-text-fill: white;
+}
+
+.menu-button-active {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* CONTENIDO CENTRAL */
+.contenido {
+    -fx-background-color: #f5f7fb;
+    -fx-padding: 28px;
+}
+
+.contenido-titulo {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.contenido-descripcion {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748b;
+}
+
+.contenido-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 10px;
+    -fx-padding: 22px;
+}
+
+.card-titulo {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #172033;
+}
+
+.card-texto {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748b;
+}
